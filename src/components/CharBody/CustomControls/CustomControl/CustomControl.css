@@ -1,0 +1,26 @@
+.CustomControl{
+  color:crimson;
+  width:15%;
+  align-items: center;
+  background-color: navy;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  box-shadow: 2px 2px;
+}
+
+.Limb {
+    padding: 10px;
+    font-weight: bold;
+
+}
+.CustomControl .Next{
+  background-color: blue;
+  font-weight: bold;
+  color: white;
+}
+.CustomControl .Previous{
+  background-color: #5713A0;
+  font-weight: bold;
+  color:white;
+}

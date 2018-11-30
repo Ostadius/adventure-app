@@ -1,0 +1,23 @@
+.CharStats{
+
+}
+
+h3{
+  text-align: center;
+  font-family: enchantedLand;
+  font-size: 35px;
+}
+
+a {
+  text-align: justify;
+  font-family: enchantedLand;
+  font-size: 30px;
+}
+table, th, td {
+    border: 1px solid black;
+
+}
+@font-face {
+  font-family: enchantedLand;
+  src:url('../../assets/enchantedLand.otf')
+}

@@ -1,0 +1,68 @@
+.CharBody{
+  width:40%;
+  align-items: center;
+  text-align: center;
+  box-shadow: 2px 2px #ccc;
+  float: left;
+  margin: 42px;
+  margin-bottom: 20px;
+  padding: 20px;
+background: url("../../assets/creationBack.png") ;
+background-size: cover;
+}
+
+.defaultHead{
+  position:static;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid black;
+  margin: 2% auto;
+
+}
+
+.defaultTorso{
+  height:200px;
+  width:100px;
+  background-color: red;
+  margin:auto 150px;
+  display: inline-block;
+    transform: translateX(15px);
+}
+
+.defaultLeftArm{
+  position: static;
+background-color: red;
+height: 100px;
+width: 20px;
+margin: 2% auto;
+display: inline-block;
+transform:translateY(-85px) translateX(-265px) rotate(25deg) ;
+}
+.defaultRightArm{
+background-color: red;
+height: 100px;
+width: 20px;
+display: inline-block;
+transform:  translateX(-145px) translateY(-100px)rotate(-25deg);
+}
+.defaultLeftLeg{
+  background-color: red;
+
+  height: 120px;
+  width: 40px;
+transform: translateX(310px);
+
+}
+.defaultRightLeg{
+  background-color: red;
+
+  height: 120px;
+  width: 40px;
+transform: translateX(250px) translateY(-120px);
+
+}
+.text{
+color:cyan;
+}

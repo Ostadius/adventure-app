@@ -1,0 +1,11 @@
+.CustomControls {
+    width: 93%;
+    background: url("../../../assets/11406_original.png");
+    display: flex;
+      justify-content: space-between;
+    align-items: center;
+    box-shadow: 4px 4px 4px #ccc;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 10px
+}

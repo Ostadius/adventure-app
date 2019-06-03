@@ -1,30 +1,21 @@
 import React from 'react';
-import Head from './CharBodyParts/Head/Head'
 import classes from './CharBody.css';
 
-const charBody =(props) =>(
+const charBody =(props) =>{
 
+const divHead=`${props.head}Head`;
+const divTorso=`${props.torso}Torso`;
+const divLeftArm=`${props.leftarm}LeftArm`;
+const divRightArm=`${props.rightarm}RightArm`;
 
-  <div className={classes.CharBody}>
+return(
+<div className={classes.CharBody}>
   <a className={classes.text}>{props.currentClass}</a>
-<div className={classes.defaultHead}></div>
-<div className={classes.defaultTorso}></div>
-<div className={classes.defaultLeftArm}></div>
-<div className={classes.defaultRightArm}></div>
-<div className={classes.defaultLeftLeg}></div>
-<div className={classes.defaultRightLeg}></div>
-
-
-
+  <div type="head" className={classes[divHead]}></div>
+  <div type="torso" className={classes[divTorso]}></div>
+  <div type="leftArm" className={classes[divLeftArm]}></div>
+  <div type="rightArm" className={classes[divRightArm]}></div>
 </div>
-)
-  // let selectedHead = Object.keys(props.head);
-  // let selectedTorso = Object.keys(props.torso);
-  // let selectedLeftArm = Object.keys(props.leftArm);
-  // let selectedRightArm = Object.keys(props.rightArm);
-  // let selectedLeftLeg = Object.keys(props.leftLeg);
-  // let selectedRightLeg = Object.keys(props.rightLeg); Lägg alla dessa i en array?
-
-;
+)};
 
 export default charBody;

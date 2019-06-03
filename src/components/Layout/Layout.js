@@ -1,16 +1,16 @@
-import React,{Component} from 'react';
-import Aux from '../../hoc/_Aux';
-import Toolbar from '../Navigation/Toolbar/Toolbar'
-import classes from './Layout.css'
+import React,{Component, Fragment} from 'react';
+import Toolbar from '../Navigation/Toolbar/Toolbar';
+import classes from './Layout.css';
+
 class Layout extends Component{
   render(){
     return(
-      <Aux>
+      <React.Fragment>
       <Toolbar  />
       <main className={classes.Layout}>
       {this.props.children}
       </main>
-      </Aux>
+      </React.Fragment>
 
     );
   }

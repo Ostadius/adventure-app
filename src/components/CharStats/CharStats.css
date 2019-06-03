@@ -2,6 +2,10 @@
 
 }
 
+.statTable{
+  width: 15%;
+}
+
 h3{
   text-align: center;
   font-family: enchantedLand;
@@ -16,8 +20,19 @@ a {
 table, th, td {
     border: 1px solid black;
 
+
 }
 @font-face {
   font-family: enchantedLand;
   src:url('../../assets/enchantedLand.otf')
+}
+@media only screen and (max-width: 770px) {
+  h3{
+    display: none;
+  }
+
+  a {
+  display: none;
+  }
+
 }

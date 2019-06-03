@@ -1,10 +1,11 @@
 .CharBody{
-  width:40%;
+  width:35%;
+  height: 75%;
   align-items: center;
   text-align: center;
-  box-shadow: 2px 2px #ccc;
+  box-shadow: 8px 8px 8px white;
   float: left;
-  margin: 42px;
+  margin: 5%;
   margin-bottom: 20px;
   padding: 20px;
 background: url("../../assets/creationBack.png") ;
@@ -21,33 +22,139 @@ background-size: cover;
   margin: 2% auto;
 
 }
+.rogueHead{
+  position:static;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid red;
+  margin: 2% auto;
 
+}
+.mageHead{
+  position:static;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid blue;
+  margin: 2% auto;
+
+}
+.hunterHead{
+  position:static;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid green;
+  margin: 2% auto;
+
+}
 .defaultTorso{
+
   height:200px;
   width:100px;
   background-color: red;
-  margin:auto 150px;
-  display: inline-block;
-    transform: translateX(15px);
+margin: auto;
+
+
+}
+.rogueTorso{
+
+  height:200px;
+  width:100px;
+  background-color: crimson;
+margin: auto;
+
+
+}
+.mageTorso{
+
+  height:200px;
+  width:100px;
+  background-color: gray;
+margin: auto;
+
+
+}
+.hunterTorso{
+
+  height:200px;
+  width:100px;
+  background-color: green;
+margin: auto;
+
+
 }
 
 .defaultLeftArm{
-  position: static;
+
 background-color: red;
 height: 100px;
 width: 20px;
-margin: 2% auto;
-display: inline-block;
-transform:translateY(-85px) translateX(-265px) rotate(25deg) ;
+margin: auto;
+transform:translateY(-194px) translateX(84px) rotate(150deg) ;
+}
+.rogueLeftArm{
+
+background-color: gray;
+height: 100px;
+width: 20px;
+margin: auto;
+transform:translateY(-194px) translateX(84px) rotate(150deg) ;
+}
+.mageLeftArm{
+
+background-color: crimson;
+height: 100px;
+width: 20px;
+margin: auto;
+transform:translateY(-194px) translateX(84px) rotate(150deg) ;
+}
+.hunterLeftArm{
+
+background-color: green;
+height: 100px;
+width: 20px;
+margin: auto;
+transform:translateY(-194px) translateX(84px) rotate(150deg) ;
 }
 .defaultRightArm{
 background-color: red;
 height: 100px;
 width: 20px;
-display: inline-block;
-transform:  translateX(-145px) translateY(-100px)rotate(-25deg);
+margin:auto;
+transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
+
 }
-.defaultLeftLeg{
+.rogueRightArm{
+background-color: grey;
+height: 100px;
+width: 20px;
+margin:auto;
+transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
+
+}
+.mageRightArm{
+background-color: crimson;
+height: 100px;
+width: 20px;
+margin:auto;
+transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
+
+}
+.hunterRightArm{
+background-color: green;
+height: 100px;
+width: 20px;
+margin:auto;
+transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
+
+}
+
+/* .defaultLeftLeg{
   background-color: red;
 
   height: 120px;
@@ -62,7 +169,27 @@ transform: translateX(310px);
   width: 40px;
 transform: translateX(250px) translateY(-120px);
 
-}
+} */
+
+
+    .defaultLegs{
+
+      background: red;
+      height: 130px;
+      width:110px;
+      background-size:60px auto;
+      transform: translateX(190px);
+
+   }
+   .defaultFeet{
+     background: linear-gradient(90deg, pink 30%,red 30%,pink 30%);
+     height:30px;
+     width:160px;
+     transform: translateX(167.5px);
+
+   }
+
+
 .text{
 color:cyan;
 }

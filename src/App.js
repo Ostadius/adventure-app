@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import CharBuilder from './containers/CharBuilder/CharBuilder';
+import Home from './containers/Home/Home';
+import Hub from './containers/Hub/Hub';
+import Bio from './containers/Bio/Bio';
+import TempDatBase from './containers/TempDatBase/TempDatBase';
 import Layout from './components/Layout/Layout';
+
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-    <div> 
+    <div>
     <Layout>
-    <CharBuilder />
-        </Layout>
+        <Switch>
+          <Route path='/character-creator'component={CharBuilder} />
+          <Route path='/hub'component={Hub} />
+          <Route path='/bio'component={Bio} />
+          <Route path='/tempDB'component={TempDatBase} />
+          <Route path='/' exact component={Home} />
+        </Switch>
+    </Layout>
     </div>
     );
   }

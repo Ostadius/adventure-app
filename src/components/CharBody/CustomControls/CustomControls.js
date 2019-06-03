@@ -2,12 +2,12 @@ import React from 'react';
 import CustomControl from './CustomControl/CustomControl';
 import classes from './CustomControls.css'
 const custom =[
-  {limb:'Head',type:'default-head'},
-  {limb:'Torso',type:'default-torso'},
-  {limb:'Left Arm',type:'default-left-arm'},
-  {limb:'Right Arm',type:'default-right-arm'},
-  {limb:'Left leg',type:'default-left-leg'},
-  {limb:'Right leg',type:'default-right-leg'},
+  {label:'Head',type:'head'},
+  {label:'Torso',type:'torso'},
+  {label:'Left Arm',type:'leftarm'},
+  {label:'Right Arm',type:'rightarm'},
+  {label:'Left leg',type:'leftleg'},
+  {label:'Right leg',type:'rightleg'},
 ]
 
 
@@ -15,8 +15,10 @@ const customControls = (props) =>(
 <div className={classes.CustomControls}>
 {custom.map(cust=>(
   <CustomControl
-  key={cust.limb}
-  limb={cust.limb} />
+  next={()=>props.partNext(cust.type)}
+  previous={()=>props.partPrevious(cust.type)}
+  key={cust.label}
+  label={cust.label} />
 ))}
 
 </div>

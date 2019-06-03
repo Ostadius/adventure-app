@@ -11,5 +11,5 @@ display: flex;
   padding: 0 20px;
   background: url("../../../assets/creationBack.png");
   color:pink;
-      z-index: 90;
+      z-index: 80;
 }

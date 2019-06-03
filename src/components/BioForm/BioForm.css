@@ -2,6 +2,15 @@
   resize:none;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  font-family: enchantedLand;
+  src:url('../../assets/enchantedLand.otf')
 
+}
+.formStyle{
+
+}
+
+h2,input{
+  font-family: enchantedLand;
+  src:url('../../assets/enchantedLand.otf')
 }

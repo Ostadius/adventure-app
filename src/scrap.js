@@ -4,7 +4,7 @@ import CharBody from '../../components/CharBody/CharBody';
 import CharStats from '../../components/CharStats/CharStats';
 import BioForm from '../../components/BioForm/BioForm';
 
-const classes = ['default','rogue','mage','hunter'];
+const classes = ['default','berserker','rogue','scribe','engineer'];
 class CharBuilder extends Component{
   state={
       head:{

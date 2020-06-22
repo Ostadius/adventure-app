@@ -1,5 +1,6 @@
 .CharView{
-  background: crimson;
+  background: url("../../assets/creationBack.png") ;
+  background-size: cover;
   margin: auto;
   margin-bottom: 20px;
   margin-top: 10%;

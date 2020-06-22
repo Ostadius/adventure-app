@@ -7,7 +7,7 @@ const custom =[
   {label:'Left Arm',type:'leftarm'},
   {label:'Right Arm',type:'rightarm'},
   {label:'Left leg',type:'leftleg'},
-  {label:'Right leg',type:'rightleg'},
+  {label:'Right leg',type:'rightleg'}
 ]
 
 

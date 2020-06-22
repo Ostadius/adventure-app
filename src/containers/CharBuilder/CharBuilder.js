@@ -4,7 +4,7 @@ import CharBody from '../../components/CharBody/CharBody';
 import CharStats from '../../components/CharStats/CharStats';
 
 
-const classes = ['default','rogue','mage','hunter'];
+const classes = ['default','berserker','rogue','scribe','engineer'];
 class CharBuilder extends Component{
   state={
 
@@ -87,15 +87,16 @@ class CharBuilder extends Component{
 
     changeBodyHandlerPreviousIndex = (type) =>{
 
+      let newIndex;
       const oldIndex = this.state[type].index;
       const oldPart = this.state[type];
       const array = classes.length;
-
+      
       if(oldIndex ===0){
-        var newIndex = array -1;
+         newIndex = array -1;
       }
       else {
-        var newIndex = oldIndex -1;
+         newIndex = oldIndex -1;
       }
 
       this.setState({
@@ -124,7 +125,7 @@ showClassHandler =()=>{
         leftarm={this.state.leftarm.class}
         rightarm={this.state.rightarm.class}
         leftleg={this.state.leftleg.class}
-        rightarm={this.state.rightarm.class}
+        rightleg={this.state.rightleg.class}
        />
       <CharStats
 

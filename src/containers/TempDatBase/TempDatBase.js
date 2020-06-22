@@ -1,6 +1,7 @@
 import React,{Component,Fragment} from 'react';
 import CharDB from '../../components/CharDB/CharDB';
 import axios from '../../axios-orders';
+
 class TempDatBase extends Component{
 state={
   char:[],
@@ -34,7 +35,7 @@ render(){
 
   return(
   <div>
-
+  <p> Hej hej </p>
       {this.state.char.map(ch=>(
 
         <CharDB

@@ -22,7 +22,8 @@ class Home extends Component{
       <Login
         changed={(event)=>this.inputChangeHandler(event)}
         loginBtn={(event)=>this.loginButton(event)}/>
-          <form></form>
+          <form>
+          </form>
 
       </div>
 

@@ -18,20 +18,26 @@ const charStats =(props)=>{
     break;
     case('rogue'):
     str=12;
-    dex=19;
-    def=8;
+    dex=29;
+    def=12;
     mag=11;
     break;
-    case('mage'):
+    case('scribe'):
     str=12;
     dex=19;
     def=8;
     mag=25;
     break;
-    case('hunter'):
+    case('engineer'):
     str=14;
     dex=16;
-    def=8;
+    def=10;
+    mag=3;
+    break;
+    case('berserker'):
+    str=25;
+    dex=11;
+    def=19;
     mag=3;
     break;
     default:
@@ -49,6 +55,7 @@ const charStats =(props)=>{
    </a>
 
   <table className={classes.statTable}>
+  <tbody>
   <tr>
   <th>Stats</th>
   </tr>
@@ -69,6 +76,7 @@ const charStats =(props)=>{
   <td>Intelligence</td>
   <td>{mag}</td>
   </tr>
+  </tbody>
   </table>
   <div className={classes.buttons}>
   <button

@@ -3,6 +3,7 @@ import CharBuilder from './containers/CharBuilder/CharBuilder';
 import Home from './containers/Home/Home';
 import Hub from './containers/Hub/Hub';
 import Bio from './containers/Bio/Bio';
+import BattleLogic from './containers/BattleLogic/BattleLogic';
 import TempDatBase from './containers/TempDatBase/TempDatBase';
 import Layout from './components/Layout/Layout';
 
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path='/hub'component={Hub} />
           <Route path='/bio'component={Bio} />
           <Route path='/tempDB'component={TempDatBase} />
+          <Route path='/battle-logic'component={BattleLogic} />
           <Route path='/' exact component={Home} />
         </Switch>
     </Layout>

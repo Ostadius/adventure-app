@@ -4,21 +4,26 @@
 
 .statTable{
   width: 15%;
+  color: #fff;
+
 }
 
 h3{
   text-align: center;
   font-family: enchantedLand;
   font-size: 35px;
+  color: #fff;
+
 }
 
 a {
   text-align: justify;
   font-family: enchantedLand;
   font-size: 30px;
+  color: #fff;
 }
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid white;
 
 
 }

@@ -7,11 +7,12 @@ const charDB = (props) =>{
 const body =[];
 
 
-console.log(body);
+
 console.log(props.id);
   return (
     <div className={classes.charSummary}>
-    <p>{props.id} : {props.class}</p>
+    <p>{props.id} :</p><br />
+    <p> {props.currentClass}</p>
 
     </div>
   );

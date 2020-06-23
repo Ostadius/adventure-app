@@ -4,12 +4,12 @@ import axios from '../../axios-orders';
 
 class TempDatBase extends Component{
 state={
-  char:[],
+  chars:[],
   loading:true
 
 }
 componentDidMount(){
-  axios.get('/character.json').
+  axios.get('/characters.json').
   then( res=>{
     const fetchedChar =[];
     for(let key in res.data)
@@ -18,7 +18,7 @@ componentDidMount(){
         id:key
       })
       console.log(fetchedChar);
-      this.setState({loading:false, char:fetchedChar});
+      this.setState({loading:false, chars:fetchedChar});
 
   }
 
@@ -31,18 +31,19 @@ catch(err=>{
 )}
 
 render(){
-  console.log(this.state.char);
+  console.log(this.state.chars);
 
   return(
   <div>
   <p> Hej hej </p>
-      {this.state.char.map(ch=>(
+      {this.state.chars.map(char=>(
 
         <CharDB
-        id={ch.id}
-        class={ch.class}
-        index={ch.index}
-        />
+        id={char.id}
+        class={char.class}
+        index={char.index}
+         />
+
       ))}
 
     </div>

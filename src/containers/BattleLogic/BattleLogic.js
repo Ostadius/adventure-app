@@ -1,17 +1,23 @@
 import React, {Component,Fragment} from 'react';
-import Battle from '../../components/Battle/Battle';
+import BattleBack from '../../components/BattleBack/BattleBack';
+import BattleControls from '../../components/BattleBack/BattleControls/BattleControls';
 
 
 class BattleLogic extends Component {
 state ={
+  player1:{
 
+  },
+  player2:{
+    
+  }
 }
 
 render(){
 
   return(
     <Fragment>
-    
+        <BattleBack />
     </Fragment>
 
 

@@ -1,0 +1,8 @@
+.BattleMessage{
+  background-color:rgb(240, 6, 173) ;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+  width: 100px;
+  font-size: 20px;
+}

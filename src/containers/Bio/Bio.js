@@ -35,7 +35,7 @@ class Bio extends Component{
         />
       <BioForm
         />
-    
+      <BackButton />
         </Fragment>
     );
   }

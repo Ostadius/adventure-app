@@ -1,12 +1,4 @@
 
-/*
-assets
-
-
-
-
-
- */
 
 *{
   margin:0;
@@ -32,6 +24,7 @@ nav li{
 
   font-size: 17px;
 }
+
 .search-button{
   padding-top: 10px;
   background:url('../img/search-icon.png');

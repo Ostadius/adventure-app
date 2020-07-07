@@ -6,7 +6,7 @@ import classes from './Toolbar.css';
 
 const toolBar =(props)=>(
 <header className={classes.Toolbar}>
-  <img src={Oak} />
+  <img alt="oak-pic" src={Oak} />
 <DrawerToggle clicked={props.drawerToggleClicked} />
     <nav>
       <NavItems />

@@ -8,7 +8,7 @@ const custom =[
   {label:'Right Arm',type:'rightarm'},
   {label:'Left leg',type:'leftleg'},
   {label:'Right leg',type:'rightleg'}
-]
+];
 
 
 const customControls = (props) =>(

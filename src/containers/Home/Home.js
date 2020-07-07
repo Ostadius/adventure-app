@@ -18,14 +18,14 @@ class Home extends Component{
   }
   render (){
     return(
-      <div>
+      <Fragment>
       <Login
         changed={(event)=>this.inputChangeHandler(event)}
         loginBtn={(event)=>this.loginButton(event)}/>
           <form>
           </form>
 
-      </div>
+      </Fragment>
 
     )
 

@@ -146,11 +146,11 @@ showClassHandler =()=>{
     },
     leftarm:{
       index:this.state.leftarm.index,
-      class:this.state.leftarm.index
+      class:this.state.leftarm.class
     },
     rightarm:{
       index:this.state.rightarm.index,
-      class:this.state.rightarm.index
+      class:this.state.rightarm.class
     },
     currentClass:this.state.currentClass
     }

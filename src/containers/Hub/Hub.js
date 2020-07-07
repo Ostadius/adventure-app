@@ -9,12 +9,12 @@ class Hub extends Component {
   }
   render (){
     return(
-      <React.Fragment>
+      <Fragment>
       <CharView />
 
       <CharBody />
       <a> HEJ LISA</a>
-      </React.Fragment>
+      </Fragment>
 
 
     )

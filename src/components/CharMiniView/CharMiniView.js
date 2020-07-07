@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './CharBody.css';
-const charBody =(props) =>{
+import classes from './CharMiniView.css';
 
+const charMiniView =(props) =>{
 const divHead=`${props.head}Head`;
 const divTorso=`${props.torso}Torso`;
 const divLeftArm=`${props.leftarm}LeftArm`;
@@ -13,7 +13,7 @@ const divRightLeg=`${props.rightleg}RightLeg`;
 
 return(
 
-<div className={classes.CharBody}>
+<div className={classes.miniCharView}>
   <a className={classes.text}>{props.currentClass}</a>
   <div type="head" className={classes[divHead]}></div>
   <div type="torso" className={classes[divTorso]}></div>
@@ -24,4 +24,4 @@ return(
 </div>
 )};
 
-export default charBody;
+export default charMiniView;

@@ -1,0 +1,14 @@
+.Panels{
+  margin: 0 6.5% 2%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  height: 220px;
+}
+
+
+.Panel{
+  background-color: rgba(38, 38, 38, 1) ;
+
+}

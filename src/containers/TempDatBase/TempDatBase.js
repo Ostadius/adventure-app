@@ -33,10 +33,7 @@ componentDidMount(){
 
 render(){
 
-  this.state.chars.map(char=>(
-    console.log(char)
-
-  ))
+  
 
   return(
   <Fragment>

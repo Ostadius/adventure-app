@@ -1,0 +1,9 @@
+.Panel{
+  background-color: rgba(38, 38, 38, 1) ;
+  color: white;
+
+}
+.CharPanel{
+  width: 220px;
+  margin: 0 auto;
+}

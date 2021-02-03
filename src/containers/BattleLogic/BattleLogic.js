@@ -13,7 +13,7 @@ state ={
   player2:{
 
   },
-  chars:null,
+  chars:[],
   loading:true,
   error:false
 }

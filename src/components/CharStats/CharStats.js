@@ -4,47 +4,47 @@ import classes from './CharStats.css';
 
 const charStats =(props)=>{
 
-  let dex;
-  let str;
-  let def;
-  let mag;
+  let dex=props.dex;
+  let str=props.str;
+  let def=props.def;
+  let int=props.int;
 
   switch(props.currentClass){
     case('default'):
     str=10;
     dex=10;
     def=10;
-    mag=10;
+    int=10;
     break;
     case('rogue'):
     str=12;
     dex=29;
     def=12;
-    mag=11;
+    int=11;
     break;
     case('scribe'):
     str=12;
     dex=19;
     def=8;
-    mag=25;
+    int=25;
     break;
     case('engineer'):
     str=14;
     dex=16;
     def=10;
-    mag=3;
+    int=3;
     break;
     case('berserker'):
     str=25;
     dex=11;
     def=19;
-    mag=3;
+    int=3;
     break;
     default:
        dex = 0;
        str = 0;
        def = 24;
-       mag = 0;
+       int = 0;
   }
   return(
 
@@ -55,34 +55,33 @@ const charStats =(props)=>{
    </a>
 
   <table className={classes.statTable}>
-  <tbody>
-  <tr>
-  <th>Stats</th>
-  </tr>
-  <tr>
-  <td>Dexterity</td>
-  <td>{dex}</td>
-  </tr>
-  <tr>
-  <td>Strength</td>
-  <td>{str}</td>
-  </tr>
-  <tr>
-  <td>Defense</td>
-  <td>{def}
-  </td>
-  </tr>
-  <tr>
-  <td>Intelligence</td>
-  <td>{mag}</td>
-  </tr>
-  </tbody>
+    <tbody>
+      <tr>
+        <th>Stats</th>
+      </tr>
+      <tr>
+        <td>Strength</td>
+        <td>{str}</td>
+      </tr>
+      <tr>
+        <td>Dexterity</td>
+        <td>{dex}</td>
+      </tr>
+      <tr>
+        <td>Defense</td>
+        <td>{def}</td>
+      </tr>
+      <tr>
+        <td>Intelligence</td>
+        <td>{int}</td>
+      </tr>
+    </tbody>
   </table>
   <div className={classes.buttons}>
-  <button
-  onClick={props.changeClass}>
-  Class change{props.classes}
-  </button>
+    <button
+    onClick={props.changeClass}>
+    Class change{props.classes}
+    </button>
 
   </div>
   </div>

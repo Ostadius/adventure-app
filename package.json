@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.2",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -33,7 +33,7 @@
     "promise": "8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dev-utils": "^4.0.1",
+    "react-dev-utils": "^4.2.3",
     "react-dom": "^16.13.1",
     "react-navigation": "^3.9.1",
     "react-router-dom": "^4.3.1",

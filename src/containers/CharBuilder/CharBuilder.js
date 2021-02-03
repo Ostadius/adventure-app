@@ -3,12 +3,17 @@ import CustomControls from '../../components/CharBody/CustomControls/CustomContr
 import CharBody from '../../components/CharBody/CharBody';
 import CharDB from '../../components/CharDB/CharDB';
 import CharStats from '../../components/CharStats/CharStats';
-import SaveButton from '../../components/SaveCharComponents/SaveButton/SaveButton';
 import axios from '../../axios-orders.js';
 const classes = ['default','berserker','rogue','scribe','engineer'];
 class CharBuilder extends Component{
   state={
-
+//add it all in char Object??
+      baseStats:{
+        str:10,
+        dex:10,
+        def:10,
+        int:10
+      },
       head:{
         index:0,
         class:'default'
@@ -35,8 +40,7 @@ class CharBuilder extends Component{
       },
     index:0,
     currentClass:'default',
-      customReady:false,
-      customDone:false,
+      customizingReady:false,
       error:false
       }
 
@@ -44,18 +48,78 @@ class CharBuilder extends Component{
       this.setState({currentClass: classes[ind]})
 
     }
-    componentDidMount(){
-      console.log(this.state.index);
-      console.log(this.state.currentClass);
-      console.log(this.state.head);
-
+    updateBodyPart(type,newIndex){
+      this.setState({
+        [type]:{
+          index:newIndex,
+          class:classes[newIndex]}
+      })
     }
-    componentDidUpdate(){
-      console.log(this.state.currentClass);
-      console.log(this.state.head);
 
+    componentDidUpdate(prevProps,prevState,snapshot){
+      const classJob = this.state.currentClass;
+      console.log(`Current class:${classJob} and previous class:${prevState.currentClass}`);
+      if(prevState.currentClass !== classJob ){
+        switch (classJob) {
+          case 'default':
+          this.setState({
+            baseStats:{
+              str:10,
+              dex:10,
+              def:10,
+              int:10
+            }
+          })
+          break;
+          case 'berserker':
+          // updateStats(25,11,18,8)
+          this.setState({
+            baseStats:{
+              str:25,
+              dex:11,
+              def:18,
+              int:8
+            }
+          })
+          break;
+          case 'rogue':
+          // updateStats(15,21,11,10)
+          this.setState({
+            baseStats:{
+              str:15,
+              dex:21,
+              def:11,
+              int:10
+            }
+          })
+          break;
+          case 'scribe':
+          // updateStats(9,12,9,29)
+          this.setState({
+            baseStats:{
+              str:9,
+              dex:12,
+              def:9,
+              int:29
+            }
+          })
+          break;
+          case 'engineer':
+          this.setState({
+            baseStats:{
+              str:9,
+              dex:18,
+              def:8,
+              int:18
+            }
+          })
+          // updateStats(9,18,9,18)
+          break;
+        }
+
+      }
     }
-    changeClassAndBodyHandlerNextIndex = (type)=>{
+    changeClassHandlerNextIndex = (type)=>{
 
 
       const oldIndex = this.state.index;
@@ -69,7 +133,7 @@ class CharBuilder extends Component{
     }
     changeBodyHandlerNextIndex = (type)=>{
 
-
+      console.log(this.state.baseStats.str);
       const oldIndex = this.state[type].index;
       console.log(oldIndex);
       const oldPart = this.state;
@@ -78,18 +142,7 @@ class CharBuilder extends Component{
       const array = classes.length;
       const newIndex = changeIndex % array;
 
-
-
-      this.setState({
-
-        [type]:{
-          index:newIndex,
-          class:classes[newIndex] }
-
-
-
-      })
-
+      this.updateBodyPart(type,newIndex);
 
     }
 
@@ -97,7 +150,6 @@ class CharBuilder extends Component{
 
       let newIndex;
       const oldIndex = this.state[type].index;
-      const oldPart = this.state[type];
       const array = classes.length;
 
       if(oldIndex ===0){
@@ -107,14 +159,8 @@ class CharBuilder extends Component{
          newIndex = oldIndex -1;
       }
 
-      this.setState({
+      this.updateBodyPart(type,newIndex);
 
-          [type]:{
-            index:newIndex,
-            class:classes[newIndex] }
-
-
-      })
 
     }
 showClassHandler =()=>{
@@ -124,46 +170,42 @@ showClassHandler =()=>{
 
 }
   saveCharacterHandler =(event)=>{
-    event.preventDefault();
+    console.log(event);
     console.log(this.state);
     console.log(this.state.head.class);
     const char = {
       head:{
-      index:this.state.head.index,
       class:this.state.head.class
     },
     torso:{
-      index:this.state.torso.index,
       class:this.state.torso.class
     },
     leftleg:{
-      index:this.state.leftleg.index,
       class:this.state.leftleg.class
     },
     rightleg:{
-      index:this.state.rightleg.index,
       class:this.state.rightleg.class
     },
     leftarm:{
-      index:this.state.leftarm.index,
       class:this.state.leftarm.class
     },
     rightarm:{
-      index:this.state.rightarm.index,
       class:this.state.rightarm.class
     },
-    currentClass:this.state.currentClass
+    currentClass:this.state.currentClass,
+    baseStats:this.state.baseStats
     }
     axios.post('/characters.json',char)
     .then(response =>{
       this.setState({
-        customReady:true
+        customizingReady:true
 
         })
-        this.props.history.push('/')
     }).catch(error=>{
       this.setState({error:true})
     })
+
+
   }
   render(){
 
@@ -182,20 +224,24 @@ showClassHandler =()=>{
        />
       <CharStats
 
-        changeClass={this.changeClassAndBodyHandlerNextIndex}
+        changeClass={this.changeClassHandlerNextIndex}
         showClass={this.showClassHandler}
         currentClass={this.state.currentClass}
+        str={this.state.baseStats.str}
+        dex={this.state.baseStats.dex}
+        def={this.state.baseStats.def}
+        int={this.state.baseStats.int}
 
       />
       <CustomControls
       partNext={this.changeBodyHandlerNextIndex}
       partPrevious={this.changeBodyHandlerPreviousIndex}
       currentClass={this.state.rightarm.class}
+      saveChar={this.saveCharacterHandler.bind(this)}
+
       />
 
-      <SaveButton
-      saveChar={this.saveCharacterHandler}
-       />
+
 
        <CharDB
        currentClass={this.state.currentClass}

@@ -14,7 +14,8 @@ const divRightLeg=`${props.rightleg}RightLeg`;
 return(
 
 <div className={classes.miniCharView}>
-  <a className={classes.text}>{props.currentClass}</a>
+  <p className={classes.text}>{props.currentClass}</p>
+  <a className={classes.text}>{props.id}</a>
   <div type="head" className={classes[divHead]}></div>
   <div type="torso" className={classes[divTorso]}></div>
   <div type="leftArm" className={classes[divLeftArm]}></div>

@@ -33,7 +33,7 @@ componentDidMount(){
 
 render(){
 
-  
+
 
   return(
   <Fragment>
@@ -47,6 +47,7 @@ render(){
          />
          <CharMiniView
          currentClass={char.currentClass}
+         id={char.id}
          head={char.head.class}
          torso={char.torso.class}
          leftarm={char.leftarm.class}

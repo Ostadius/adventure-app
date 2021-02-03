@@ -20,6 +20,7 @@ const customControls = (props) =>(
   key={cust.label}
   label={cust.label} />
 ))}
+<button className={classes.SaveButton} onClick={props.saveChar} type="button">Save Character Playa</button>
 
 </div>
 

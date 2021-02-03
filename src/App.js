@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CharBuilder from './containers/CharBuilder/CharBuilder';
 import Home from './containers/Home/Home';
 import Hub from './containers/Hub/Hub';
-//import Bio from './containers/Bio/Bio';
 import BattleLogic from './containers/BattleLogic/BattleLogic';
 import TempDatBase from './containers/TempDatBase/TempDatBase';
 import Layout from './components/Layout/Layout';

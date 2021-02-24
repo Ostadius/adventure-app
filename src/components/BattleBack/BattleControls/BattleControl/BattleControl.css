@@ -1,11 +1,11 @@
 .ControlButton {
-  height: 90px;
+  height: 10vh;
   width: 70%;
   margin-top: 10%;
   border: 3px solid grey;
   border-radius: 20px;
   font-weight: bold;
-
+  font-size: 80%;
 }
 
 .Controls{

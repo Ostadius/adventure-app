@@ -1,43 +1,59 @@
+@font-face {
+  font-family: enchantedLand;
+  src:url('../../assets/enchantedLand.otf')
+}
+
 .CharStats{
+  display: block;
+  background: url("../../assets/11406_original.png");
+  margin: 2.5%;
+  padding: 10px;
+
 
 }
 
 .statTable{
   width: 15%;
   color: #fff;
+  margin:auto;
+
+}
+.bioText{
+  text-align: justify;
+  word-wrap: break-word;
 
 }
 
 h3{
   text-align: center;
   font-family: enchantedLand;
-  font-size: 35px;
-  color: #fff;
-
-}
-
-a {
-  text-align: justify;
-  font-family: enchantedLand;
   font-size: 30px;
   color: #fff;
+
 }
+
 table, th, td {
     border: 1px solid white;
 
+}
 
-}
-@font-face {
-  font-family: enchantedLand;
-  src:url('../../assets/enchantedLand.otf')
-}
-@media only screen and (max-width: 770px) {
-  h3{
-    display: none;
+
+
+@media  (max-width: 770px) {
+  .statTable{
+    width: 35%;
+
   }
+  .buttons{
+    width: 15%;
+    margin: auto;
+  }
+}
 
-  a {
-  display: none;
+@media (max-width: 400px) {
+  .statTable{
+    width: 100%;
+
   }
 
 }

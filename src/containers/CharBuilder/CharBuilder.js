@@ -3,15 +3,19 @@ import CustomControls from '../../components/CharBody/CustomControls/CustomContr
 import CharBody from '../../components/CharBody/CharBody';
 import CharDB from '../../components/CharDB/CharDB';
 import CharStats from '../../components/CharStats/CharStats';
+import CharSummary from '../../components/CharSummary/CharSummary';
+import Modal from '../../components/UI/Modal/Modal';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
+import classes from './CharBuilder.css';
 import axios from '../../axios-orders.js';
-const classes = ['default','berserker','rogue','scribe','engineer'];
+const jobclasses = ['default','berserker','rogue','scribe','engineer'];
 class CharBuilder extends Component{
   state={
-//add it all in char Object??
-      baseStats:{
+      status:{
         str:10,
         dex:10,
-        def:10,
+        vit:10,
         int:10
       },
       head:{
@@ -40,106 +44,58 @@ class CharBuilder extends Component{
       },
     index:0,
     currentClass:'default',
-      customizingReady:false,
-      error:false
+      customizing:false,
+      classInfo:`This is just a commoner, but aren't we all?`,
+      error:null  ,
+      loading:false
       }
 
     updateCurrentClass (ind){
-      this.setState({currentClass: classes[ind]})
+      this.setState({currentClass: jobclasses[ind], index:ind})
 
     }
     updateBodyPart(type,newIndex){
       this.setState({
         [type]:{
           index:newIndex,
-          class:classes[newIndex]}
+          class:jobclasses[newIndex]}
       })
     }
+    componentDidMount(){
 
-    componentDidUpdate(prevProps,prevState,snapshot){
+    }
+    componentDidUpdate(prevProps,prevState  ){
       const classJob = this.state.currentClass;
-      console.log(`Current class:${classJob} and previous class:${prevState.currentClass}`);
       if(prevState.currentClass !== classJob ){
-        switch (classJob) {
-          case 'default':
+        axios.get('/classInfo.json')
+        .then(response =>{
+          const responseStatus =response.data[classJob].status;
           this.setState({
-            baseStats:{
-              str:10,
-              dex:10,
-              def:10,
-              int:10
-            }
-          })
-          break;
-          case 'berserker':
-          // updateStats(25,11,18,8)
-          this.setState({
-            baseStats:{
-              str:25,
-              dex:11,
-              def:18,
-              int:8
-            }
-          })
-          break;
-          case 'rogue':
-          // updateStats(15,21,11,10)
-          this.setState({
-            baseStats:{
-              str:15,
-              dex:21,
-              def:11,
-              int:10
-            }
-          })
-          break;
-          case 'scribe':
-          // updateStats(9,12,9,29)
-          this.setState({
-            baseStats:{
-              str:9,
-              dex:12,
-              def:9,
-              int:29
-            }
-          })
-          break;
-          case 'engineer':
-          this.setState({
-            baseStats:{
-              str:9,
-              dex:18,
-              def:8,
-              int:18
-            }
-          })
-          // updateStats(9,18,9,18)
-          break;
-        }
+            classInfo:response.data[classJob].info,
+            status:{
+              str:responseStatus.str,
+              dex:responseStatus.dex,
+              vit:responseStatus.vit,
+              int:responseStatus.int,
+            }})
+        })
+
 
       }
     }
     changeClassHandlerNextIndex = (type)=>{
-
-
       const oldIndex = this.state.index;
       const changeIndex = oldIndex +1
-      const array = classes.length
+      const array = jobclasses.length
       const newIndex = changeIndex % array;
-      console.log('boop');
-      this.setState({index :newIndex });
+
       this.updateCurrentClass(newIndex);
 
     }
     changeBodyHandlerNextIndex = (type)=>{
-
-      console.log(this.state.baseStats.str);
       const oldIndex = this.state[type].index;
-      console.log(oldIndex);
-      const oldPart = this.state;
-      console.log(oldPart);
       const changeIndex = oldIndex + 1;
-      const array = classes.length;
+      const array = jobclasses.length;
       const newIndex = changeIndex % array;
 
       this.updateBodyPart(type,newIndex);
@@ -147,32 +103,21 @@ class CharBuilder extends Component{
     }
 
     changeBodyHandlerPreviousIndex = (type) =>{
-
-      let newIndex;
       const oldIndex = this.state[type].index;
-      const array = classes.length;
-
-      if(oldIndex ===0){
-         newIndex = array -1;
-      }
-      else {
-         newIndex = oldIndex -1;
-      }
+      const changeIndex = oldIndex -1;
+      const array = jobclasses.length;
+      const newIndex= (oldIndex===0) ? array -1 : changeIndex;
 
       this.updateBodyPart(type,newIndex);
 
 
     }
 showClassHandler =()=>{
-  console.log(this.state.index);
-  console.log(this.state.currentClass);
   console.log('This is a ' + this.state.currentClass)
 
 }
   saveCharacterHandler =(event)=>{
-    console.log(event);
-    console.log(this.state);
-    console.log(this.state.head.class);
+    this.setState({loading:true})
     const char = {
       head:{
       class:this.state.head.class
@@ -193,26 +138,67 @@ showClassHandler =()=>{
       class:this.state.rightarm.class
     },
     currentClass:this.state.currentClass,
-    baseStats:this.state.baseStats
+    status:this.state.status
     }
     axios.post('/characters.json',char)
     .then(response =>{
-      this.setState({
-        customizingReady:true
-
-        })
+      this.customizingCancelHandler();
+      this.setState({loading:false})
     }).catch(error=>{
       this.setState({error:true})
     })
 
 
   }
-  render(){
+  customizingHandler =()=>{
+    this.setState({customizing:true})
+  }
 
+  customizingCancelHandler =()=>{
+    this.setState({customizing:false})
+  }
+  render(){
+    let charSummary = this.state.error ? <p>Can't load son</p>: <Spinner />
+
+    if(this.state.loading){
+    charSummary=  <Spinner />;
+}
+    if(!this.state.loading){
+     charSummary=
+     <ErrorBoundary>
+     <CharSummary
+     currentClass={this.state.currentClass}
+     head={this.state.head.class}
+     torso={this.state.torso.class}
+     leftarm={this.state.leftarm.class}
+     rightarm={this.state.rightarm.class}
+     leftleg={this.state.leftleg.class}
+     rightleg={this.state.rightleg.class}
+     status={this.state.status}
+     saveChar={this.saveCharacterHandler.bind(this)}
+     cancelChar={this.customizingCancelHandler}
+     />
+     </ErrorBoundary>
+    }
 
 
     return(
       <Fragment>
+      <Modal show={this.state.customizing} modalClosed={this.customizingCancelHandler}>
+        {charSummary}
+      </Modal>
+      <div className={classes.flexContainer}>
+
+      <CharStats
+       changeClass={this.changeClassHandlerNextIndex}
+       showClass={this.showClassHandler}
+       currentClass={this.state.currentClass}
+       classInfo={this.state.classInfo}
+       str={this.state.status.str}
+       dex={this.state.status.dex}
+       vit={this.state.status.vit}
+       int={this.state.status.int}
+       />
       <CharBody
         currentClass={this.state.currentClass}
         head={this.state.head.class}
@@ -221,38 +207,20 @@ showClassHandler =()=>{
         rightarm={this.state.rightarm.class}
         leftleg={this.state.leftleg.class}
         rightleg={this.state.rightleg.class}
-       />
-      <CharStats
-
-        changeClass={this.changeClassHandlerNextIndex}
-        showClass={this.showClassHandler}
-        currentClass={this.state.currentClass}
-        str={this.state.baseStats.str}
-        dex={this.state.baseStats.dex}
-        def={this.state.baseStats.def}
-        int={this.state.baseStats.int}
-
-      />
-      <CustomControls
-      partNext={this.changeBodyHandlerNextIndex}
-      partPrevious={this.changeBodyHandlerPreviousIndex}
-      currentClass={this.state.rightarm.class}
-      saveChar={this.saveCharacterHandler.bind(this)}
-
-      />
+        />
+        <CustomControls
+        partNext={this.changeBodyHandlerNextIndex}
+         partPrevious={this.changeBodyHandlerPreviousIndex}
+         currentClass={this.state.rightarm.class}
+         pushChar={this.customizingHandler}
+         classInfo={this.state.classInfo}
+        />
 
 
 
-       <CharDB
-       currentClass={this.state.currentClass}
-       head={this.state.head.class}
-       torso={this.state.torso.class}
-       leftarm={this.state.leftarm.class}
-       rightarm={this.state.rightarm.class}
-       leftleg={this.state.leftleg.class}
-       rightleg={this.state.rightleg.class}
+       </div>
 
-       />
+
       </Fragment>
     );
   }

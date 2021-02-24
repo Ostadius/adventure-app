@@ -3,6 +3,8 @@ import BattleBack from '../../components/BattleBack/BattleBack';
 import BattleControls from '../../components/BattleBack/BattleControls/BattleControls';
 import PlayersPanels from '../../components/BattleBack/PlayersPanels/PlayersPanels';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
+
 import axios from '../../axios-orders.js';
 
 class BattleLogic extends Component {
@@ -13,13 +15,14 @@ state ={
   player2:{
 
   },
-  chars:[],
-  loading:true,
+  chars:null,
+  loading:false,
   error:false
 }
 
 
 componentDidMount(){
+  this.setState({loading:true});
   axios.get('/characters.json')
   .then( res=>{
     const fetchedChar =[];
@@ -45,30 +48,30 @@ componentDidMount(){
 
 )}
 render(){
-  let panel = this.state.error ? <p>Can't load son</p>: <Spinner />
+    let panel = this.state.error ? <p>Can't load son</p>: <Spinner />
 
   if(this.state.loading){
   panel=  <Spinner />;
   }
   if(this.state.chars ===null){
-    <Spinner />
+  panel=  <Spinner />
 
   }
   if(this.state.chars){
-    console.log(this.state.chars);
    panel=  <PlayersPanels
     characters={this.state.chars} />
   }
-console.log(this.state.chars);
-console.log('hey');
+
   return(
     <Fragment>
         <BattleBack
         player1={this.state.player1}
         player2={this.state.player2}
         characters={this.state.chars} />
+        <ErrorBoundary>
+          {panel}
+        </ErrorBoundary>
 
-        {panel}
 
     </Fragment>
 

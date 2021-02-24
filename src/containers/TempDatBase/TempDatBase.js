@@ -32,32 +32,25 @@ componentDidMount(){
 )}
 
 render(){
-
+let charView = this.state.chars.map(char=>(
+  <div key={char.id}>
+   <CharMiniView
+   currentClass={char.currentClass}
+   id={char.id}
+   head={char.head.class}
+   torso={char.torso.class}
+   leftarm={char.leftarm.class}
+   rightarm={char.rightarm.class}
+   leftleg={char.leftleg.class}
+   rightleg={char.rightleg.class}
+    />
+   </div>
+))
 
 
   return(
   <Fragment>
-
-      {this.state.chars.map(char=>(
-        <div key={char.id}>
-        <CharDB
-        id={char.id}
-        class={char.currentClass}
-        index={char.index}
-         />
-         <CharMiniView
-         currentClass={char.currentClass}
-         id={char.id}
-         head={char.head.class}
-         torso={char.torso.class}
-         leftarm={char.leftarm.class}
-         rightarm={char.rightarm.class}
-         leftleg={char.leftleg.class}
-         rightleg={char.rightleg.class}
-          />
-         </div>
-      ))}
-
+      {charView}
     </Fragment>
   );
 }

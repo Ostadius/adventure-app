@@ -6,11 +6,11 @@ import classes from './Toolbar.css';
 
 const toolBar =(props)=>(
 <header className={classes.Toolbar}>
-  <img alt="oak-pic" src={Oak} />
-<DrawerToggle clicked={props.drawerToggleClicked} />
-    <nav>
-      <NavItems />
-    </nav>
+  <img alt="oak-pic" src={Oak} className={classes.Logo} />
+  <DrawerToggle clicked={props.drawerToggleClicked} />
+  <nav className={classes.DeskOnly}>
+    <NavItems />
+  </nav>
 </header>
 );
 

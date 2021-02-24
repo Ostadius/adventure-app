@@ -1,12 +1,12 @@
 import React from 'react';
+import Oak from '../../../../assets/oak.png';
+
 
 import classes from './DrawerToggle.css';
 
 const drawerToggle = (props) => (
     <div className={classes.DrawerToggle} onClick={props.clicked}>
-        <div></div>
-        <div></div>
-        <div></div>
+    <img alt="oak-pic" src={Oak} className={classes.Logo} />
     </div>
 );
 

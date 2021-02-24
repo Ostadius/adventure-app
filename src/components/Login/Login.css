@@ -1,16 +1,25 @@
 .Login{
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   margin:auto;
 
 
 }
 
-.LogPic{
 
+.LogPic{
+  display: block;
+  margin: auto;
   width: 140px;
 
 }
-.btnStyle{
+.LoginHead{
+  width: 100px;
+  margin: auto;
 
+
+}
+.btnStyle{
+  display: block;
+  margin: 1rem auto;
 }

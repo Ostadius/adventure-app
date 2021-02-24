@@ -1,0 +1,8 @@
+.flexContainer{
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+
+}
+.flexDiv{
+  flex:1;
+}

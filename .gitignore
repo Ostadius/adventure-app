@@ -2,3 +2,4 @@ package-lock.json
 how-to-use.text
 .md*
 node_modules/
+training.js

@@ -10,9 +10,11 @@ const battle = (props) =>{
     <Fragment>
     <BattleMessage />
     <div className={classes.Col}>
-    <BattleControls />
-    <div className={classes.BattleBackground} />
-    <BattleControls />
+      <BattleControls />
+        <div className={classes.BattleBackground}>
+          
+        </div>
+      <BattleControls />
     </div>
     </Fragment>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomControl from './CustomControl/CustomControl';
+import PanelText from '../../PanelText/PanelText';
 import classes from './CustomControls.css'
 const custom =[
   {label:'Head',type:'head'},
@@ -13,6 +14,7 @@ const custom =[
 
 const customControls = (props) =>(
 <div className={classes.CustomControls}>
+<PanelText />
 {custom.map(cust=>(
   <CustomControl
   next={()=>props.partNext(cust.type)}
@@ -20,7 +22,7 @@ const customControls = (props) =>(
   key={cust.label}
   label={cust.label} />
 ))}
-<button className={classes.SaveButton} onClick={props.saveChar} type="button">Save Character Playa</button>
+<button className={classes.SaveButton} onClick={props.pushChar} type="button">Save Character Playa</button>
 
 </div>
 

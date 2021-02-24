@@ -8,11 +8,10 @@ const navItems = () =>(
   <NavItem link="/character-creator">Character Creator</NavItem>
   {/*
    <NavItem link="/bio">Bio</NavItem>
-   */} 
+   */}
   <NavItem link="/hub">Hub</NavItem>
   <NavItem link="/tempDB">TempDB</NavItem>
   <NavItem link="/battle-logic">Battle</NavItem>
-
   </ul>
 
 

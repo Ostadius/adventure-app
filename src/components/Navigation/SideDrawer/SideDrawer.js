@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react';
 
 import Oak from '../../../assets/oak.png';
-import NavigationItems from '../NavItems/NavItems';
+import NavItems from '../NavItems/NavItems';
 import classes from './SideDrawer.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 
@@ -16,14 +16,16 @@ const sideDrawer = ( props ) => {
             <Backdrop show={props.open} clicked={props.closed}/>
             <div className={attachedClasses.join(' ')}>
                 <div className={classes.Logo}>
-                    <Oak />
+                    <img alt="oak-pic" src={Oak} />
                 </div>
                 <nav>
-                    <NavigationItems />
+                    <NavItems />
                 </nav>
             </div>
         </Fragment>
     );
+
+
 };
 
 export default sideDrawer;

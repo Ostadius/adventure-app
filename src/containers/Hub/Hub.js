@@ -5,7 +5,7 @@ import CharBody from '../../components/CharBody/CharBody';
 
 class Hub extends Component {
   state ={
-  
+
   }
   render (){
     return(

@@ -1,291 +1,208 @@
 
-/* ['default','berserker','rogue','scribe','engineer']; */
-
 .CharBody{
-  width:35%;
-  height: 550px;
-  align-items: center;
+  height: 65vh;
   text-align: center;
-  box-shadow: 8px 8px 8px white;
-  float: left;
-  margin: 5%;
-  margin-bottom: 20px;
-  padding: 20px;
+  border-radius: 20px;
+  /* float: left; */
+  padding: 10px;
   background: url("../../assets/creationBack.png") ;
   background-size: cover;
 }
 
-.defaultHead{
-  position:static;
+@media (max-width: 400px) {
+  .CharBody{
+    width:45vh;
+    height: 45vh;
+    text-align: center;
+    border-radius: 20px;
+    /* float: left; */
+    margin: 2% 5%;
+    padding: 10px;
+    background: url("../../assets/creationBack.png") ;
+    background-size: cover;
+  }
+}
+.gridBody {
+display: grid;
+justify-content: center;
+grid-template-columns: repeat(3, 0.2fr);
+grid-template-rows: repeat(3, 0.fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.Head{
+  grid-area: 1 / 2 / 2 / 3;
   width: 0;
   height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 100px solid black;
-  margin: 2% auto;
+  border-left: 8vmin solid transparent;
+  border-right: 8vmin solid transparent;
+  border-top: 15vmin solid;
+  margin: auto;
+
+
+}
+.defaultHead{
+  border-top: 15vmin solid black;
 
 }
 .rogueHead{
-  position:static;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 100px solid red;
-  margin: 2% auto;
+  border-top: 15vmin solid red;
 
 }
 .scribeHead{
-  position:static;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 100px solid blue;
-  margin: 2% auto;
+  border-top: 15vmin solid blue;
 
 }
 .berserkerHead{
-  position:static;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 100px solid green;
-  margin: 2% auto;
+  border-top: 15vmin solid green;
+
 
 }
 .engineerHead{
-  position:static;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 100px solid cyan;
-  margin: 2% auto;
+  border-top: 15vmin solid cyan;
 
 }
+.Torso{
+  grid-area: 2 / 2 / 3 / 3;
+  height:25vmin;
+  width: 98%;
+  border: solid black;
+  border-width: thin;
+
+}
+
 .defaultTorso{
-
-  height:200px;
-  width:100px;
   background-color: red;
-margin-left: auto;
-margin-right: auto;
-
 
 }
 .rogueTorso{
-
-  height:200px;
-  width:100px;
   background-color: crimson;
-margin-left: auto;
-margin-right: auto;
-
 
 }
 .scribeTorso{
-
-  height:200px;
-  width:100px;
   background-color: gray;
-margin-left: auto;
-margin-right: auto;
-
 
 }
 .berserkerTorso{
 
-  height:200px;
-  width:100px;
   background-color: green;
-margin-left: auto;
-margin-right: auto;
-
 
 }
 .engineerTorso{
-
-  height:200px;
-  width:100px;
   background-color: cyan;
-margin: auto;
-
-
 }
 
+.LeftArm{
+grid-area: 2 / 1 / 3 / 2;
+height: 14vmin;
+width: 4.5vmin;
+margin-left: auto;
+transform: rotate(210deg);
+border: solid black;
+border-width: thin;
+}
 .defaultLeftArm{
-
-background-color: red;
-height: 100px;
-width: 20px;
-margin: auto;
-transform:translateY(-194px) translateX(84px) rotate(150deg) ;
+  background-color: red;
 }
 .rogueLeftArm{
 
 background-color: gray;
-height: 100px;
-width: 20px;
-margin: auto;
-transform:translateY(-194px) translateX(84px) rotate(150deg) ;
+
 }
 .scribeLeftArm{
 
 background-color: crimson;
-height: 100px;
-width: 20px;
-margin: auto;
-transform:translateY(-194px) translateX(84px) rotate(150deg) ;
+
 }
 .berserkerLeftArm{
 
 background-color: green;
-height: 100px;
-width: 20px;
-margin: auto;
-transform:translateY(-194px) translateX(84px) rotate(150deg) ;
-}
-.defaultRightArm{
-background-color: red;
-height: 100px;
-width: 20px;
-margin:auto;
-transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
-
-}
-.rogueRightArm{
-background-color: grey;
-height: 100px;
-width: 20px;
-margin:auto;
-transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
-
-}
-.scribeRightArm{
-background-color: crimson;
-height: 100px;
-width: 20px;
-margin:auto;
-transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
-
-}
-.berserkerRightArm{
-background-color: green;
-height: 100px;
-width: 20px;
-margin:auto;
-transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
 
 }
 .engineerLeftArm{
 
 background-color: cyan;
-height: 100px;
-width: 20px;
-margin: auto;
-transform:translateY(-194px) translateX(84px) rotate(150deg) ;
+
 }
+.RightArm{
+grid-area: 2 / 3 / 3 / 4;
+height: 14vmin;
+width: 4.5vmin;
+margin-right: auto;
+transform:rotate(150deg) ;
+border: solid black;
+border-width: thin;
+}
+.defaultRightArm{
+  background-color: red;
+}
+.rogueRightArm{
+background-color: grey;
+
+}
+.scribeRightArm{
+background-color: crimson;
+
+
+}
+.berserkerRightArm{
+background-color: green;
+
+}
+
 .engineerRightArm{
 background-color: cyan;
-height: 100px;
-width: 20px;
-margin:auto;
-transform:translateY(-290px) translateX(-80px) rotate(25deg) ;
 
+
+}
+.LeftLeg{
+  grid-area: 3 / 3 / 4 / 2;
+  margin-right: auto;
+  height: 20vmin;
+  width: 7vmin;
+  border: solid black;
+  border-width: thin;
 }
 .defaultLeftLeg{
   background-color: red;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(-50px) translateY(-200px);
-
-}
-.defaultRightLeg{
-  background-color: red;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(50px) translateY(-320px);
-
 }
 .rogueLeftLeg{
   background-color: grey;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(-50px) translateY(-200px);
-
 }
-.rogueRightLeg{
-  background-color: grey;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(50px) translateY(-320px);
-
+.berserkerLeftLeg{
+  background-color: green;
 }
 .scribeLeftLeg{
   background-color: crimson;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(-50px) translateY(-200px);
-
-}
-.scribeRightLeg{
-  background-color: crimson;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(50px) translateY(-320px);
 
 }
 .engineerLeftLeg{
   background-color: cyan;
+}
+.RightLeg{
+  grid-area: 3 / 3 / 4 / 2;
   margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(-50px) translateY(-200px);
-
+  height: 20vmin;
+  width: 7vmin;
+  border: solid black;
+  border-width: thin;
+}
+.defaultRightLeg{
+  background-color: red;
+}
+.rogueRightLeg{
+  background-color: grey;
+}
+.scribeRightLeg{
+  background-color: crimson;
 }
 .engineerRightLeg{
   background-color: cyan;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(50px) translateY(-320px);
-
-}
-.berserkerLeftLeg{
-  background-color: green;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(-50px) translateY(-200px);
-
 }
 .berserkerRightLeg{
   background-color: green;
-  margin-left: auto;
-  margin-right: auto;
-  height: 120px;
-  width: 40px;
-  transform: translateX(50px) translateY(-320px);
-
 }
-
 
 .text{
 color:cyan;
